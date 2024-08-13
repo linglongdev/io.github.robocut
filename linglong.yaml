@@ -1,0 +1,30 @@
+version: "1"
+
+package:
+  id: io.github.robocut
+  name: robocut
+  version: 1.0.11.1
+  kind: app
+  description: |
+    Control vinyl cutters, including Craft Robo, Silhouette, Cameo and Portrait
+
+command:
+  - /opt/apps/io.github.robocut/files/bin/Robocut
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/Timmmm/robocut.git
+    version: master
+    commit: f75fbf0c71ac45ee4945f6a551bcacab15985a0b
+
+build: |
+  cd /project/linglong/sources/robocut.git
+  git apply ../../../0001-install.patch
+  mkdir build
+  cd build
+  cmake .. \
+        -DCMAKE_INSTALL_PREFIX=${PREFIX}
+  cmake --build . --target install

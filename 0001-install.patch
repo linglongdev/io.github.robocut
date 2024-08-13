@@ -1,0 +1,48 @@
+From 56c08149a78bc8254fb0dcf66c6d9f97c8505916 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Thu, 8 Aug 2024 17:22:03 +0800
+Subject: [PATCH] install
+
+---
+ CMakeLists.txt       |  7 ++++++-
+ icon/Robocut.desktop | 11 +++++++++++
+ 2 files changed, 17 insertions(+), 1 deletion(-)
+ create mode 100644 icon/Robocut.desktop
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index daf0d34..fa846d4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -126,5 +126,10 @@ else ()
+ 
+ 	install(TARGETS Robocut
+ 		RUNTIME DESTINATION bin)
+-
++	install(FILES icon/Robocut.png
++	        DESTINATION share/icons)
++	
++	
++	install(FILES icon/Robocut.desktop
++	            DESTINATION share/applications)
+ endif ()
+diff --git a/icon/Robocut.desktop b/icon/Robocut.desktop
+new file mode 100644
+index 0000000..d17e9ae
+--- /dev/null
++++ b/icon/Robocut.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=Robocut
++Name=Robocut
++Name[zh_CN]=Robocut
++Icon=Robocut
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=Robocut
++Version=1.0.10
+\ No newline at end of file
+-- 
+2.43.4
+
